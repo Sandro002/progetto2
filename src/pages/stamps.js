@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Logout from '../components/Logout';
+import Get from '../components/get';
 import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import MapContainer from '../components/maps';
@@ -61,7 +61,7 @@ export default function Stamps(props) {
   {
      history.push('/');
   }
-
+  Get('timbra_NomeCognome');
   return (
     <Container component="main" maxWidth="xs">
       <Grid container justify="flex-start">

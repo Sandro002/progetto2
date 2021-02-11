@@ -10,7 +10,7 @@ import Logout from '../components/Logout';
 import { AirlineSeatReclineExtra } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import Login from '../components/Login';
-import Grid from '@material-ui/core/Grid';pu
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   paper: {

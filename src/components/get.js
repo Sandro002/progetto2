@@ -1,14 +1,19 @@
 import React from 'react';
 
-import axios from 'axios';
-
-export default async function Get() {
 
 
-    try {
-      const response = await axios.get('http://timbrature.iplusservice.it?User:timbrature-ips-it&Pwd:DYzbkFGQZpDwC9pM');
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
+export default async function Get(foo) {
+  fetch('/timbr/index.php?funzione=' + encodeURIComponent(foo) + '&idutente=' + encodeURIComponent(localStorage.getItem('email')))
+    .then(res => res.json())
+    .then(
+        (result) => {
+            console.log('***');
+            console.log(result);
+            console.log('***');
+        },
+        (error) => {
+            console.log('###');
+            console.log(error);
+            console.log('###');
+        })
 }
