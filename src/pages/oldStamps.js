@@ -49,6 +49,11 @@ export default function OldStamps(props) {
   function choose() {
     history.push("/choose");
   }
+  var i=localStorage.getItem('email');
+  if(i==null)
+  {
+     history.push('/');
+  }
 
   return (
     <Container component="main" maxWidth="xs">

@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import Logout from '../components/Logout';
 import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import MapContainer from '../components/maps';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,6 +50,17 @@ export default function Stamps(props) {
   function choose() {
     history.push("/choose");
   }
+  navigator.geolocation.getCurrentPosition(function(position) {
+    localStorage.setItem('lat', position.coords.latitude);
+    localStorage.setItem('long', position.coords.longitude);
+    console.log("Latitude is :", localStorage.getItem('lat'));
+    console.log("Longitude is :", localStorage.getItem('long'));
+  });
+  var i=localStorage.getItem('email');
+  if(i==null)
+  {
+     history.push('/');
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -61,15 +73,20 @@ export default function Stamps(props) {
           Stamp
         </Typography>
         <Typography component="h4" variant="h6">
-          <tr>Nome:</tr>
-          <tr>Cognome:</tr>
-          <tr>E-Mail:</tr>
-          <tr>Data:</tr>
-          <tr>Ora:</tr>
-          <tr>Coordinate:</tr>
-          <tr>Mappa:</tr>
+          <tr>Nome Cognome</tr>
+          <tr>E-Mail: {localStorage.getItem('email')}</tr>
+          <tr container justify="center"><MapContainer/></tr>
         </Typography>
         <form className={classes.form} noValidate>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <Grid container justify="center">
             <Button
               type="submit"
