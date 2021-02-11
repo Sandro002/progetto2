@@ -10,7 +10,7 @@ import Logout from '../components/Logout';
 import { AirlineSeatReclineExtra } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
 import Login from '../components/Login';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';pu
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,12 +49,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Choose(props) {
   let history = useHistory();
+
   const classes = useStyles();
   function stamps() {
     history.push("/stamps");
   }
   function oldStamps() {
     history.push("/oldStamps");
+  }
+  var i=localStorage.getItem('email');
+  if(i==null)
+  {
+     history.push('/');
   }
   return (
     <Container component="main" maxWidth="xs">
