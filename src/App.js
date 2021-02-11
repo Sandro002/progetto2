@@ -3,7 +3,8 @@ import './App.css';
 import React,{useState} from 'react';
 import Choose from './pages/choose';
 import Welcome from './pages/welcome';
-import Timbra from './pages/timbra';
+import Stamps from './pages/stamps';
+import OldStamps from './pages/oldStamps';
 import {Router,Route,Redirect, BrowserRouter, Switch} from 'react-router-dom'
 
 function App() {
@@ -20,8 +21,11 @@ function App() {
             <Route path="/Welcome">
               <Welcome sign={sign} setSign={setSign}/>
             </Route>
-            <Route path="/timbra">
-              <Timbra/>
+            <Route path="/stamps">
+              <Stamps/>
+            </Route>
+            <Route path="/oldStamps">
+              <OldStamps/>
             </Route>
           </Switch>
     </div>

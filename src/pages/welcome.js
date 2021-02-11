@@ -12,11 +12,13 @@ import '../components/Login';
 import '../components/Logout';
 import Login from '../components/Login';
 import Logout from '../components/Logout';
-
+import logo from '../img/logo.jpg';
+import margine from '../img/download.png';
+import grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(35),
+    marginTop: theme.spacing(10),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -39,6 +41,10 @@ export default function Welcome(props) {
 
   return (
     <Container component="main" maxWidth="xs">
+      <Grid container justify="center">
+        <img src={margine} className="App-logo" alt="logo" style={{ width: "221px", height: "200px" }} />
+        <img src={logo} className="App-logo" alt="logo" style={{ width: "350px", height: "70px" }} />
+      </Grid>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -48,9 +54,8 @@ export default function Welcome(props) {
           Sign in
         </Typography>
         <form className={classes.form} noValidate>
-          
+        <Grid container justify="center">
          <Login sign={props.sign} setSign={props.setSign}/>
-          <Grid container>
           </Grid>
         </form>
       </div>
