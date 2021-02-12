@@ -65,10 +65,13 @@ export default function Stamps(props) {
   }
   Get('timbra_NomeCognome');
   return (
+    
     <Container component="main" maxWidth="xs">
-      <Clock style={FormatAlignRight}/>
-      <Grid container justify="flex-start">
+       <Grid container justify="flex-start">
         <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine} />
+      </Grid>
+      <Grid container justify="flex-end"  component="h3">
+      <Clock style={FormatAlignRight}/>
       </Grid>
       <CssBaseline />
       <div className={classes.paper}>
@@ -76,7 +79,7 @@ export default function Stamps(props) {
           Stamp
         </Typography>
         <Typography component="h4" variant="h6">
-          <tr>Nome Cognome</tr>
+          <tr>Nome: Cognome: </tr>
           <tr>E-Mail: {localStorage.getItem('email')}</tr>
           <tr container justify="center"><Maps/></tr>
         </Typography>
@@ -89,12 +92,13 @@ export default function Stamps(props) {
               color="primary"
               onClick={choose}
               className={classes.submit}>
-              Return to Menu'
+              Return to Menu
              (questo conferma la timbratura)
           </Button>
           </Grid>
         </form>
       </div>
     </Container>
+    
   );
 }
