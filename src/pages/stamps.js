@@ -8,6 +8,8 @@ import Get from '../components/get';
 import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Maps from '../components/maps';
+import Clock from '../components/clock';
+import { FormatAlignLeft, FormatAlignRight } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -64,6 +66,7 @@ export default function Stamps(props) {
   Get('timbra_NomeCognome');
   return (
     <Container component="main" maxWidth="xs">
+      <Clock style={FormatAlignRight}/>
       <Grid container justify="flex-start">
         <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine} />
       </Grid>
