@@ -5,7 +5,7 @@ import App from './App';
 import {BrowserRouter ,Route,
   Redirect,Switch} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-
+import "leaflet/dist/leaflet.css";
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

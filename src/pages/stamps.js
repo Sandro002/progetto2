@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 import Get from '../components/get';
 import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import MapContainer from '../components/maps';
+import Maps from '../components/maps';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -75,18 +75,9 @@ export default function Stamps(props) {
         <Typography component="h4" variant="h6">
           <tr>Nome Cognome</tr>
           <tr>E-Mail: {localStorage.getItem('email')}</tr>
-          <tr container justify="center"><MapContainer/></tr>
+          <tr container justify="center"><Maps/></tr>
         </Typography>
         <form className={classes.form} noValidate>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
           <Grid container justify="center">
             <Button
               type="submit"
