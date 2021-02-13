@@ -6,6 +6,8 @@ import Welcome from './pages/welcome';
 import Stamps from './pages/stamps';
 import OldStamps from './pages/oldStamps';
 import {Router,Route,Redirect, BrowserRouter, Switch} from 'react-router-dom'
+import NotFound from './pages/notfound';
+
 
 function App() {
   const [sign, setSign]=useState(false);
@@ -27,6 +29,7 @@ function App() {
             <Route path="/oldStamps">
               <OldStamps/>
             </Route>
+            <Route component={NotFound} />
           </Switch>
     </div>
   );
