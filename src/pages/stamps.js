@@ -55,8 +55,6 @@ export default function Stamps(props) {
   navigator.geolocation.getCurrentPosition(function(position) {
     localStorage.setItem('lat', position.coords.latitude);
     localStorage.setItem('long', position.coords.longitude);
-    console.log("Latitude is :", localStorage.getItem('lat'));
-    console.log("Longitude is :", localStorage.getItem('long'));
   });
   var i=localStorage.getItem('email');
   if(i==null)
@@ -65,13 +63,13 @@ export default function Stamps(props) {
   }
   Get('timbra_NomeCognome');
   return (
-    
+    <div>
+      <Clock style={FormatAlignRight}/>
     <Container component="main" maxWidth="xs">
        <Grid container justify="flex-start">
         <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine} />
       </Grid>
       <Grid container justify="flex-end"  component="h3">
-      <Clock style={FormatAlignRight}/>
       </Grid>
       <CssBaseline />
       <div className={classes.paper}>
@@ -99,6 +97,7 @@ export default function Stamps(props) {
         </form>
       </div>
     </Container>
+    </div>
     
   );
 }
