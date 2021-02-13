@@ -10,7 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import Maps from '../components/maps';
 import Clock from '../components/clock';
 import { FormatAlignLeft, FormatAlignRight } from '@material-ui/icons';
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(7),
@@ -44,8 +43,6 @@ const useStyles = makeStyles((theme) => ({
     height: '35px',
   }
 }));
-
-
 export default function Stamps(props) {
   let history = useHistory();
   const classes = useStyles();
@@ -64,7 +61,7 @@ export default function Stamps(props) {
   Get('timbra_NomeCognome');
   return (
     <div>
-      <Clock style={FormatAlignRight}/>
+      <h2><Clock style={FormatAlignRight}/></h2>
     <Container component="main" maxWidth="xs">
        <Grid container justify="flex-start">
         <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine} />
@@ -98,6 +95,5 @@ export default function Stamps(props) {
       </div>
     </Container>
     </div>
-    
   );
 }

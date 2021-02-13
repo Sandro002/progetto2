@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Choose(props) {
   let history = useHistory();
-
   const classes = useStyles();
   function stamps() {
     history.push("/stamps");
