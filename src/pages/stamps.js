@@ -54,9 +54,9 @@ export default function Stamps(props) {
     localStorage.setItem('long', position.coords.longitude);
   });
   var i=localStorage.getItem('email');
-  if(i==null)
+  //if(i==null)
   {
-     history.push('/');
+     //history.push('/');
   }
   Get('timbra_NomeCognome');
   return (
