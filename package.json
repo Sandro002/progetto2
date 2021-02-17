@@ -2,6 +2,7 @@
   "name": "progetto2",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://timbrature.iplusservice.it",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -11,7 +12,6 @@
     "axios": "^0.21.1",
     "google-maps-react": "^2.0.6",
     "leaflet": "^1.7.1",
-    "proxy": "http://timbrature.iplusservice.it",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-google-button": "^0.7.2",
