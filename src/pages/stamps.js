@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Maps from '../components/maps';
 import Clock from '../components/clock';
 import { FormatAlignLeft, FormatAlignRight } from '@material-ui/icons';
+import userEvent from '@testing-library/user-event';
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(7),
@@ -43,7 +44,9 @@ const useStyles = makeStyles((theme) => ({
     height: '35px',
   }
 }));
+
 export default function Stamps(props) {
+  
   let history = useHistory();
   const classes = useStyles();
   function choose() {
@@ -58,13 +61,14 @@ export default function Stamps(props) {
   {
      //history.push('/');
   }
-  Get('timbra_NomeCognome');
+ var user=Get('timbra_NomeCognome');
+
   return (
     <div>
       <h2><Clock style={FormatAlignRight}/></h2>
     <Container component="main" maxWidth="xs">
        <Grid container justify="flex-start">
-        <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine} />
+        <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine}/>
       </Grid>
       <Grid container justify="flex-end"  component="h3">
       </Grid>
@@ -74,7 +78,8 @@ export default function Stamps(props) {
           Stamp
         </Typography>
         <Typography component="h4" variant="h6">
-          <tr>Nome: Cognome: </tr>
+          <tr>Nome: {user.name}</tr> 
+          <tr> Cognome: {user.surname}</tr>
           <tr>E-Mail: {localStorage.getItem('email')}</tr>
           <tr container justify="center"><Maps/></tr>
         </Typography>

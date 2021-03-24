@@ -11,7 +11,6 @@
     "axios": "^0.21.1",
     "google-maps-react": "^2.0.6",
     "leaflet": "^1.7.1",
-    "proxy": "http://timbrature.iplusservice.it",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-google-button": "^0.7.2",
@@ -48,5 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://timbrature.iplusservice.it"
 }
