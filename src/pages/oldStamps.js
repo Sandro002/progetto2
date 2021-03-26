@@ -1,4 +1,4 @@
-import logo from '../img/logo.jpg';
+import logo from '../img/logo.png';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +7,7 @@ import Container from '@material-ui/core/Container';
 import Logout from '../components/Logout';
 import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import Get from'../components/get';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -61,8 +62,9 @@ export default function OldStamps(props) {
           List
         </Typography>
         <Typography component="h4" variant="h6">
-          <tr>mettere l'elenco con nome,cognome, email,data, ora e coordinate</tr>
+          visualizza
         </Typography>
+        
         <form className={classes.form} noValidate>
           <Grid container justify="center">
             <Button

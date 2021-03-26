@@ -1,4 +1,4 @@
-import logo from '../img/logo.jpg';
+import logo from '../img/logo.png';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -11,6 +11,8 @@ import Maps from '../components/maps';
 import Clock from '../components/clock';
 import { FormatAlignLeft, FormatAlignRight } from '@material-ui/icons';
 import userEvent from '@testing-library/user-event';
+import Post from '../components/post';
+import { render } from '@testing-library/react';
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(7),
@@ -45,60 +47,60 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Stamps(props) {
-  
+export default async function Stamps(props) {
   let history = useHistory();
   const classes = useStyles();
   function choose() {
     history.push("/choose");
   }
-  navigator.geolocation.getCurrentPosition(function(position) {
+
+  navigator.geolocation.getCurrentPosition(function (position) {
     localStorage.setItem('lat', position.coords.latitude);
     localStorage.setItem('long', position.coords.longitude);
   });
-  var i=localStorage.getItem('email');
-  //if(i==null)
-  {
-     //history.push('/');
-  }
- var user=Get('timbra_NomeCognome');
+  var i = localStorage.getItem('email');
+  var result = null;
+  const run = async () => {
+    result = await Get('timbra_NomeCognome');
 
+  };
+  await run();
   return (
     <div>
-      <h2><Clock style={FormatAlignRight}/></h2>
-    <Container component="main" maxWidth="xs">
-       <Grid container justify="flex-start">
-        <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine}/>
-      </Grid>
-      <Grid container justify="flex-end"  component="h3">
-      </Grid>
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h2">
-          Stamp
-        </Typography>
-        <Typography component="h4" variant="h6">
-          <tr>Nome: {user.name}</tr> 
-          <tr> Cognome: {user.surname}</tr>
-          <tr>E-Mail: {localStorage.getItem('email')}</tr>
-          <tr container justify="center"><Maps/></tr>
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container justify="center">
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              onClick={choose}
-              className={classes.submit}>
-              Return to Menu
-             (questo conferma la timbratura)
-          </Button>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+      <h2><Clock style={FormatAlignRight} /></h2>
+      <Container component="main" maxWidth="xs">
+        <Grid container justify="flex-start">
+          <img src={logo} className="App-logo" alt="logo" style={{ float: 'left' }} className={classes.margine} />
+        </Grid>
+        <Grid container justify="flex-end" component="h3">
+        </Grid>
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h2">
+            Stamp
+                      </Typography>
+          <Typography component="h4" variant="h6">
+            <tr>Nome: {result.name}</tr>
+            <tr> Cognome: {result.surname}</tr>
+            <tr>E-Mail: {localStorage.getItem('email')}</tr>
+            <tr container justify="center"><Maps /></tr>
+          </Typography>
+          <form className={classes.form} noValidate>
+            <Grid container justify="center">
+              <Button
+                type="button"
+                fullWidth
+                variant="contained"
+                color="primary"
+                onClick={function () { var r = Post(); console.log(r.response) }}
+                className={classes.submit}>
+                Conferma timbratura
+                        </Button>
+            </Grid>
+          </form>
+        </div>
+      </Container>
     </div>
   );
+
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from '../img/logo.jpg';
+import logo from '../img/logo.png';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Logo from '../img/logo.jpg';
+import Logo from '../img/logo.png';
 import Logout from '../components/Logout';
 import { AirlineSeatReclineExtra } from '@material-ui/icons';
 import { useHistory } from 'react-router-dom';
