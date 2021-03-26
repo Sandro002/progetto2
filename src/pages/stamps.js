@@ -13,6 +13,7 @@ import { FormatAlignLeft, FormatAlignRight } from '@material-ui/icons';
 import userEvent from '@testing-library/user-event';
 import Post from '../components/post';
 import { render } from '@testing-library/react';
+import {useCallback, useEffect, useState} from "react";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(7),
@@ -47,7 +48,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default async function Stamps(props) {
+//rimosso ASYNC prima di function
+export default function Stamps(props) {
+
   let history = useHistory();
   const classes = useStyles();
   function choose() {
@@ -59,12 +62,27 @@ export default async function Stamps(props) {
     localStorage.setItem('long', position.coords.longitude);
   });
   var i = localStorage.getItem('email');
-  var result = null;
+
+  /*sostituite righe seguenti con codice fino alla riga 85 e sostituito a righe 101 e 102 result con datiListData
+    var result = null;
   const run = async () => {
     result = await Get('timbra_NomeCognome');
 
   };
   await run();
+   */
+
+  const [datiListData, setDatiListData] = useState([]);
+
+  const getDati = useCallback(async () => {
+    const result = await Get('timbra_NomeCognome');
+    setDatiListData(result);
+  }, []);
+
+  useEffect(() => {
+    getDati();
+  }, [getDati]);
+
   return (
     <div>
       <h2><Clock style={FormatAlignRight} /></h2>
@@ -80,8 +98,8 @@ export default async function Stamps(props) {
             Stamp
                       </Typography>
           <Typography component="h4" variant="h6">
-            <tr>Nome: {result.name}</tr>
-            <tr> Cognome: {result.surname}</tr>
+            <tr>Nome: {datiListData.name}</tr>
+            <tr> Cognome: {datiListData.surname}</tr>
             <tr>E-Mail: {localStorage.getItem('email')}</tr>
             <tr container justify="center"><Maps /></tr>
           </Typography>
